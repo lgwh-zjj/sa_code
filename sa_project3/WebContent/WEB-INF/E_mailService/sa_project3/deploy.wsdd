@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from E_mailService WSDL service -->
+
+  <service name="E_mail" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://sa_project3"/>
+      <parameter name="wsdlServiceElement" value="E_mailService"/>
+      <parameter name="schemaQualified" value="http://sa_project3"/>
+      <parameter name="wsdlServicePort" value="E_mail"/>
+      <parameter name="className" value="sa_project3.E_mail"/>
+      <parameter name="wsdlPortType" value="E_mail"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://sa_project3" xmlns:retNS="http://sa_project3" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="validateEmailAddress_SOAP" qname="operNS:validateEmailAddress_SOAP" returnQName="retNS:validateEmailAddress_SOAPReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://sa_project3" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:_url" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://sa_project3" xmlns:retNS="http://sa_project3" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="sendEmail_RECT" qname="operNS:sendEmail_RECT" returnQName="retNS:sendEmail_RECTReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://sa_project3" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:_url" type="tns:string"/>
+        <parameter xmlns:pns="http://sa_project3" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:_payload" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://sa_project3" xmlns:retNS="http://sa_project3" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="sendEmail_SOAP" qname="operNS:sendEmail_SOAP" returnQName="retNS:sendEmail_SOAPReturn" returnType="rtns:boolean" soapAction="">
+        <parameter xmlns:pns="http://sa_project3" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:_url" type="tns:string"/>
+        <parameter xmlns:pns="http://sa_project3" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:_payload" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="validateEmailAddress_SOAP sendEmail_RECT sendEmail_SOAP"/>
+
+  </service>
+</deployment>

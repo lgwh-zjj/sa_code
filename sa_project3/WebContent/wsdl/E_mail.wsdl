@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://sa_project3" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://sa_project3" xmlns:intf="http://sa_project3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://sa_project3" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="validateEmailAddress_SOAP">
+    <complexType>
+     <sequence>
+      <element name="_url" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="validateEmailAddress_SOAPResponse">
+    <complexType>
+     <sequence>
+      <element name="validateEmailAddress_SOAPReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendEmail_RECT">
+    <complexType>
+     <sequence>
+      <element name="_url" type="xsd:string"/>
+      <element name="_payload" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendEmail_RECTResponse">
+    <complexType>
+     <sequence>
+      <element name="sendEmail_RECTReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendEmail_SOAP">
+    <complexType>
+     <sequence>
+      <element name="_url" type="xsd:string"/>
+      <element name="_payload" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendEmail_SOAPResponse">
+    <complexType>
+     <sequence>
+      <element name="sendEmail_SOAPReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="sendEmail_RECTRequest">
+
+      <wsdl:part element="impl:sendEmail_RECT" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendEmail_SOAPResponse">
+
+      <wsdl:part element="impl:sendEmail_SOAPResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendEmail_RECTResponse">
+
+      <wsdl:part element="impl:sendEmail_RECTResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendEmail_SOAPRequest">
+
+      <wsdl:part element="impl:sendEmail_SOAP" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validateEmailAddress_SOAPRequest">
+
+      <wsdl:part element="impl:validateEmailAddress_SOAP" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="validateEmailAddress_SOAPResponse">
+
+      <wsdl:part element="impl:validateEmailAddress_SOAPResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="E_mail">
+
+      <wsdl:operation name="validateEmailAddress_SOAP">
+
+         <wsdl:input message="impl:validateEmailAddress_SOAPRequest" name="validateEmailAddress_SOAPRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:validateEmailAddress_SOAPResponse" name="validateEmailAddress_SOAPResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendEmail_RECT">
+
+         <wsdl:input message="impl:sendEmail_RECTRequest" name="sendEmail_RECTRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sendEmail_RECTResponse" name="sendEmail_RECTResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendEmail_SOAP">
+
+         <wsdl:input message="impl:sendEmail_SOAPRequest" name="sendEmail_SOAPRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sendEmail_SOAPResponse" name="sendEmail_SOAPResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="E_mailSoapBinding" type="impl:E_mail">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="validateEmailAddress_SOAP">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="validateEmailAddress_SOAPRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="validateEmailAddress_SOAPResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendEmail_RECT">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendEmail_RECTRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendEmail_RECTResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendEmail_SOAP">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendEmail_SOAPRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendEmail_SOAPResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="E_mailService">
+
+      <wsdl:port binding="impl:E_mailSoapBinding" name="E_mail">
+
+         <wsdlsoap:address location="http://localhost:8080/sa_project3/services/E_mail"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
